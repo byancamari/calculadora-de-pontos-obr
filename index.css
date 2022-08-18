@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    color: #303030;
+}
+
+body {
+    background: #DAE1E7;
+}
+
+.container {
+    width: fit-content;
+    margin: 20px auto 0 auto;
+    background: white;
+    padding: 10px 20px;
+    outline: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.max-width {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    outline: 1px solid rgba(0, 0, 0, .1);
+    background-color: #fcfcfb;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#counter {
+    letter-spacing: 2px;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    outline: none;
+    transition: all .5s;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+button:hover {
+    filter: brightness(80%);
+}
+
+button:active {
+    background-color: rgb(75, 10, 10);
+}
+
+.bg-green {
+    background-color: #3fff31;
+}
+
+.bg-yellow {
+    background-color: #62b6ff;
+}
+
+.bg-red {
+    background-color:#ff5151; 
+}
+
+/* Parte das perguntas*/
+
+/* Inputs */
+
+.form-container {
+    text-align: left;
+}
+
+.form-container input {
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    background-color: white;
+    border-radius: 5px;
+    padding: 12px 10px;
+    transition: border .2s;
+}
+
+.form-container input:focus {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, .5);
+}
+
+.form-container label {
+    width: fit-content;
+    position: relative;
+    top: 8px;
+    left: 10px;
+    background-color: white;
+    padding: 0 5px;
+}
+
+.radio-group label {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.radio-group input {
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    appearance: none;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, .5);
+    transition: .2s;
+}
+
+.radio-group input:checked {
+    background-color: #7dff73;
+}
+
+.radio-group input:before {
+    position: absolute;
+    content: attr(label);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+}
+
+.all-inputs {
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+}
+
+.enviar {
+    width: fit-content;
+    outline: 1px solid #ccc;
+    background-color: #fcfcfb;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+.label-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio-label-input {
+    display: flex;
+    column-gap: 4px;
+    justify-content: center;
+}
+
+.radio-group {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.radios {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+/* Botão */
+
+.bt {
+    border-radius: 100%;
+}
+
+.tentativas {
+    display: flex;
+    justify-content: center;
+    column-gap: 15px;
+    flex-wrap: wrap;
+    margin: 15px 0
+}
+
+.percurso-container {
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 10px;
+    width: fit-content;
+    text-align: center;
+}
+
+.percurso-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.percurso-container table th, .percurso-container table td {
+    border: 1px solid #303030;
+    text-align: left;
+    padding: 5px;
+}
+
+.percurso-heading {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    margin-bottom: 15px;
+}
+
+footer {
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    width: fit-content; 
+    margin: 0 auto;
+    align-items: center; 
+}

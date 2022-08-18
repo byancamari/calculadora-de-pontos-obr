@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/tentativas.css">
+    <title>Percursos</title>
+</head>
+<body>
+    <div class="container">
+        {% for tentativa in lista_tentativas %}
+        <div class="percurso-container">
+            <h1>Tentativa {{ tentativa["ordem"] }}</h1>
+            <h2>Pontuação: {{ tentativa["pontuacao"] }}</p>
+            <h2>Tempo: {{ tentativa["tempo"] }}</h2>
+            <p>Obstáculos: {{ tentativa["obstaculos"] }}</p>
+            <p>Passagem: {{ tentativa["passagem"] }}</p>
+            <p>Redutores: {{ tentativa["redutores"] }}</p>
+            <p>Intersecção ou beco: {{ tentativa["ib"] }}</p>
+            <p>Rampa: {{ tentativa["rampa"] }}</p>
+            <p>Gap: {{ tentativa["gap"] }}</p>
+            <p>Gangorra: {{ tentativa["gangorra"] }}</p>
+            <p>Percurso: {{ tentativa["percurso"] }}</p>
+            <p>Vítimas vivas: {{ tentativa["vitimas-vivas"] }}</p>
+            <p>Vítimas mortas: {{ tentativa["vitimas-mortas"] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

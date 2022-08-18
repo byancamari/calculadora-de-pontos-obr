@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/index.css">
+    <title>Contador de pontos</title>
+</head>
+<body>
+  <div class="container">
+    <div class="max-width">
+        <button onclick="start();" class="bg-green">Iniciar</button>
+        <button onclick="pause();" class="bg-yellow">Pausar</button>
+        <button onclick="stop();" class="bg-red">Parar</button>
+        <h1 id="counter">00:00:00</h1>
+    </div>
+    <script src="/static/crono.js"></script>
+    <div class="form-container">
+      <form method="post">
+        <div class="all-inputs">
+          <div class="input-group">
+            <div class="label-input">
+              <label for="obstaculos">Obstáculos</label>
+              <input name="obstaculos" type="number" min="0">
+            </div>
+            <div class="label-input">
+              <label for="passagem">Passagem</label>
+              <input name="passagem" type="number" min="0">
+            </div>
+            <div class="label-input">
+              <label for="gap">Gap</label>
+              <input name="gap" type="number" min="0">
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="label-input">
+              <label for="redutores">Redutores</label>
+              <input name="redutores" type="number" min="0">
+            </div>
+            <div class="label-input">
+              <label for="ib">Intersecção ou beco</label>
+              <input name="ib" type="number" min="0">
+            </div>
+            <div class="label-input">
+              <label for="gangorra">Gangorra</label>
+              <input name="gangorra" type="number" min="0">
+            </div>
+          </div>
+          <div class="radio-group">
+            <label for="rampa">Rampa</label>
+            <div class="radios">
+              <div class="radio-label-input">
+                <input type="radio" name="rampa" id="30" value="30" label="30"/>
+              </div>
+              <div class="radio-label-input">
+                <input type="radio" name="rampa" id="20" value="20" label="20"/>
+              </div>
+              <div class="radio-label-input">
+                <input type="radio" name="rampa" id="10" value="10" label="10"/>
+              </div>
+              <div class="radio-label-input">
+                <input type="radio" name="rampa" id="0" value="0" label="0"/>
+              </div>
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="label-input">
+              <label for="percurso">Percurso</label>
+              <input name="percurso" type="number" min="0">
+            </div>
+            <div class="label-input">
+              <label for="vitimas-vivas">Vítimas vivas</label>
+              <input name="vitimas-vivas" type="number" min="0">
+            </div>
+            <div class="label-input">
+              <label for="vitimas-mortas">Vítimas mortas</label>
+              <input name="vitimas-mortas" type="number" min="0">
+            </div>
+          </div>
+        </div>
+        <button class="enviar" onclick="renewinput()" type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+  <div class="tentativas">
+    {% if lista_tentativas != [] %}
+      {% for tentativa in lista_tentativas %}
+      <div class="percurso-container">
+        <div class="percurso-heading">
+          <h1>Tentativa {{ tentativa["ordem"] }}</h1>
+          <h2>Pontuação: {{ tentativa["pontuacao"] }}</p>
+          <h2>Tempo: {{ tentativa["tempo"] }}</h2>
+        </div>
+        <table>
+          <tr>
+            <th>Obstáculos</th>
+            <td>{{ tentativa["obstaculos"] }}</td>
+          </tr>
+          <tr>
+            <th>Passagem</th>
+            <td>{{ tentativa["obstaculos"] }}</td>
+          </tr>
+          <tr>
+            <th>Redutores</th>
+            <td>{{ tentativa["redutores"] }}</td>
+          </tr>
+          <tr>
+            <th>Intersecção ou beco</th>
+            <td>{{ tentativa["ib"] }}</td>
+          </tr>
+          <tr>
+            <th>Rampa</th>
+            <td>{{ tentativa["rampa"] }}</td>
+          </tr>
+          <tr>
+            <th>Gap</th>
+            <td>{{ tentativa["gap"] }}</td>
+          </tr>
+          <tr>
+            <th>Gangorra</th>
+            <td>{{ tentativa["gangorra"] }}</td>
+          </tr>
+          <tr>
+            <th>Percurso</th>
+            <td>{{ tentativa["percurso"] }}</td>
+          </tr>
+          <tr>
+            <th>Vítimas vivas</th>
+            <td>{{ tentativa["vitimas-vivas"] }}</td>
+          </tr>
+          <tr>
+            <th>Vítimas mortas</th>
+            <td>{{ tentativa["vitimas-mortas"] }}</td>
+          </tr>
+        </table>
+      </div>
+      {% endfor %}
+      <form action="/limpar" method="post">
+        <button type="submit">Limpar</button>
+      </form>
+    {% else %}
+      <div class="percurso-container"> 
+        </p>Nenhuma tentativa registrada!</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+<footer>
+  <a style="text-decoration: none;" href="https://www.instagram.com/refugiotechrobotics/">RefúgioTech Robotics</a>
+</footer>
+  <!--
+  <div class="p1">
+      <h1>Primeira tentativa</h1>
+  <h2>Percuso</h2>  <input type="number" min="0">
+  <h2>Vitimas vivas</h2> <input type="number" min="0">
+  <h2>Vitimas mortas </h2> <input type="number" min="0">
+      
+    </div>
+
+    <div class="p2">
+      <h1>Segunda tentativa</h1>
+      <h2>Percuso</h2>  <input type="number" min="0">
+      <h2>Vitimas vivas</h2> <input type="number" min="0">
+      <h2>Vitimas mortas </h2> <input type="number" min="0">
+    </div>
+
+    <div class="p3">
+      <h1>Terceira tentativa</h1>
+  <h2>Percuso</h2>  <input type="number" min="0">
+  <h2>Vitimas vivas</h2> <input type="number" min="0">
+  <h2>Vitimas mortas </h2> <input type="number">
+    </div>
+  -->
+</body>
+</html>
+
